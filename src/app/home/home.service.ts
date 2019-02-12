@@ -5,11 +5,20 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class HomeService {
-
-    constructor(public db: AngularFirestore) {}
+    private snapshotChangesSubscription: any;
+    constructor(public afs: AngularFirestore) {
+   
+    }
 
     getHomeContent(){
-        return this.db.collection('home').snapshotChanges();
+      return new Promise<any>((resolve, reject) => {
+        // let currentUser = firebase.auth().currentUser;
+        this.snapshotChangesSubscription = this.afs.collection('home').snapshotChanges()
+        .subscribe(snapshots => {
+          resolve(snapshots);
+        })
+      });
       }
 
 }
+

@@ -6,12 +6,12 @@ export const environment = {
   production: false,
   firebase: 
   {
-    apiKey: "AIzaSyCoRAFSKf9GOOzZlLq6jfOwjj1MbDKYrC4",
-    authDomain: "angular-firebase-crud-affe6.firebaseapp.com",
-    databaseURL: "https://angular-firebase-crud-affe6.firebaseio.com",
-    projectId: "angular-firebase-crud-affe6",
-    storageBucket: "",
-    messagingSenderId: "40983025552"
+    apiKey: "AIzaSyDkZUehEhavUflb2J9oz9cFavB-UrVPlBw",
+    authDomain: "gitalife-1318e.firebaseapp.com",
+    databaseURL: "https://gitalife-1318e.firebaseio.com",
+    projectId: "gitalife-1318e",
+    storageBucket: "gitalife-1318e.appspot.com",
+    messagingSenderId: "376965908258"
   }
 };
 
