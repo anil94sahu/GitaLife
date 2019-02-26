@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>home</ion-title>
     <ion-title routerLink="/tabs/tab1">post</ion-title>
@@ -6,25 +6,6 @@
 </ion-header>
 
 <ion-content padding>
-    <!-- <div class="list-group users-list">
-      <pre><code>{{items | json}}</code></pre>
-        <div *ngFor="let item of items" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="row">
-            <div class="col col-md-2 image-col">
-              <img class="image" [src]="item.payload.doc.data().avatar">
-            </div>
-            <div class="col col-md-8 text-col">
-              <h5 class="mb-1">{{item.payload.doc.data().name}} {{item.payload.doc.data().surname}}</h5>
-              <small>Age: {{item.payload.doc.data().age}}</small>
-              <button (click)="deleteDemoUser(item.payload.doc.id)">delete</button>
-              <button (click)="updateDemoUser(item.payload.doc.id, item.payload.doc.data())">update</button>
-            </div>
-           
-          </div>
-        </div>
-      
-
-      </div> -->
     <ion-card *ngFor="let item of items">
 
         <ion-item>
@@ -64,4 +45,45 @@
     </ion-card>
 
     
+</ion-content> -->
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let card of cards">
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="card.avatarImageUrl" (click)="avatarTapped(card)">
+      </ion-avatar>
+      <h2>{{card.name}}</h2>
+      <p>{{card.date}}</p>
+    </ion-item>
+    <img [src]="card.postImageUrl" (click)="imageTapped(card)">
+    <ion-card-content>
+      <p>{{card.postText}}</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left (click)="like(card)">
+        <ion-icon name='thumbs-up'></ion-icon>
+        {{card.likes}} Likes
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left (click)="comment(card)">
+        <ion-icon name='text'></ion-icon>
+        {{card.comments}} Comments
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          {{card.timestamp}}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
