@@ -1,19 +1,32 @@
-<ion-menu side="start">
-    <ion-header translucent>
-      <ion-toolbar color="secondary">
-        <ion-title>Menu</ion-title>
-       
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-        <ion-list>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-          <ion-item>Menu Item</ion-item>
-        </ion-list>
-      </ion-content>
-  </ion-menu> 
-
-  <ion-item></ion-item>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img [src]="item.imageUrl">
+        </ion-thumbnail>
+        <h2>{{item.title}}</h2>
+        <p>{{item.place}} • {{item.date}}</p>
+      </ion-item>
+      <ion-item-options side="start">
+        <button ion-button color="secondary" (click)="viewComments(item)">
+        <ion-icon name="chatbubbles"></ion-icon>
+        Comments
+      </button>
+        <button ion-button color="primary" (click)="viewPlayers(item)">
+        <ion-icon name="contacts"></ion-icon>
+        Players
+      </button>
+        <button ion-button color="danger" (click)="delete(item)">
+        <ion-icon name="trash"></ion-icon>
+        Delete
+      </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

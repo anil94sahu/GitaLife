@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { GalleryPage } from './gallery.page';
+import { AccordionListComponent } from './accordion-list/accordion-list';
 
 const routes: Routes = [
   {
@@ -21,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GalleryPage]
+  declarations: [GalleryPage,AccordionListComponent]
 })
 export class GalleryPageModule {}
