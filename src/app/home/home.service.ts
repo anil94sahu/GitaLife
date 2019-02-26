@@ -19,6 +19,22 @@ export class HomeService {
         })
       });
       }
+      createTask(value){
+        return new Promise<any>((resolve, reject) => {
+          // let currentUser = firebase.auth().currentUser;
+          this.afs.collection('home').add({
+            title: value.title,
+            description: value.description,
+            name: value.name,
+            type: value.type,
+            like: value.like
+          })
+          .then(
+            res => resolve(res),
+            err => reject(err)
+          )
+        })
+      }
 
 }
 
